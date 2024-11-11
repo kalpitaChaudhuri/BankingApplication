@@ -24,8 +24,8 @@ public class AccountServiceImplementation implements AccountService{
 
 	@Override
 	public AccountDto getAccountById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Accounts account=accountrepository.findById(id).orElseThrow(() ->new  RuntimeException("id does not exist"));
+		return AccountMapper.maptoaccountdto(account);
 	}
 
 }
