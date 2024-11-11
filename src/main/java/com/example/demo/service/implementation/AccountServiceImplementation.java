@@ -22,4 +22,10 @@ public class AccountServiceImplementation implements AccountService{
 		return AccountMapper.maptoaccountdto(accountsaved);
 	}
 
+	@Override
+	public AccountDto getAccountById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

@@ -9,4 +9,5 @@ public interface AccountService {
 
 	AccountDto createAccount(AccountDto accountdto);
 	
+	AccountDto getAccountById(int id);
 }
