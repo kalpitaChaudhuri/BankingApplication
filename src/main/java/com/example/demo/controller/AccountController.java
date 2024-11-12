@@ -30,4 +30,10 @@ public class AccountController {
 		AccountDto accountdto=accountservice.getAccountById(id);
 		return ResponseEntity.ok(accountdto);
 	}
+	
+	@GetMapping("/name/{name}")
+	public ResponseEntity<AccountDto> getAccountByName(@PathVariable String name) {
+		AccountDto accountdto=accountservice.getAccountByName(name);
+		return ResponseEntity.ok(accountdto);
+	}
 }
