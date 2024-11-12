@@ -28,4 +28,10 @@ public class AccountServiceImplementation implements AccountService{
 		return AccountMapper.maptoaccountdto(account);
 	}
 
+	@Override
+	public AccountDto getAccountByName(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
