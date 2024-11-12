@@ -1,5 +1,7 @@
 package com.example.demo.service.implementation;
 
+import javax.security.auth.login.AccountNotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -29,8 +31,11 @@ public class AccountServiceImplementation implements AccountService{
 	}
 
 	@Override
-	public AccountDto getAccountByName(String name) {
+	public AccountDto getAccountByName(String name) throws Exception {
 		Accounts account=accountrepository.findByName(name);
+		if(account == null) {
+			throw new AccountNotFoundException("Account with name " + name + " not found");
+		}
 		return AccountMapper.maptoaccountdto(account);
 	}
 

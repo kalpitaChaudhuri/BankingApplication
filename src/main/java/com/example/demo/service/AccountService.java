@@ -11,5 +11,5 @@ public interface AccountService {
 	
 	AccountDto getAccountById(int id);
 	
-	AccountDto getAccountByName(String name);
+	AccountDto getAccountByName(String name) throws Exception;
 }

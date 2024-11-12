@@ -32,7 +32,7 @@ public class AccountController {
 	}
 	
 	@GetMapping("/name/{name}")
-	public ResponseEntity<AccountDto> getAccountByName(@PathVariable String name) {
+	public ResponseEntity<AccountDto> getAccountByName(@PathVariable String name) throws Exception {
 		AccountDto accountdto=accountservice.getAccountByName(name);
 		return ResponseEntity.ok(accountdto);
 	}
