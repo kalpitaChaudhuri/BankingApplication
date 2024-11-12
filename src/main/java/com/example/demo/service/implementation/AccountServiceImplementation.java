@@ -30,8 +30,8 @@ public class AccountServiceImplementation implements AccountService{
 
 	@Override
 	public AccountDto getAccountByName(String name) {
-		// TODO Auto-generated method stub
-		return null;
+		Accounts account=accountrepository.findByName(name);
+		return AccountMapper.maptoaccountdto(account);
 	}
 
 }
