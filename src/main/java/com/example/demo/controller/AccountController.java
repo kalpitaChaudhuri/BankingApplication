@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +27,7 @@ public class AccountController {
 		return new ResponseEntity<AccountDto>(accountservice.createAccount(accountdto), HttpStatus.CREATED);
 	}
 	
-	@GetMapping("/get/{id}")
+	@GetMapping("/id/{id}")
 	public ResponseEntity<AccountDto> getAccountById(@PathVariable int id) {
 		AccountDto accountdto=accountservice.getAccountById(id);
 		return ResponseEntity.ok(accountdto);
@@ -37,9 +39,9 @@ public class AccountController {
 		return ResponseEntity.ok(accountdto);
 	}
 	
-	@GetMapping("/get/{age}")
-	public ResponseEntity<AccountDto> getAccountByAge(@PathVariable int age) throws Exception {
-		AccountDto accountdto=accountservice.getAccountByAge(age);
+	@GetMapping("/age/{age}")
+	public ResponseEntity<List<AccountDto>> getAccountByAge(@PathVariable int age) throws Exception {
+		List<AccountDto> accountdto=accountservice.getAccountByAge(age);
 		return ResponseEntity.ok(accountdto);
 	}
 }
