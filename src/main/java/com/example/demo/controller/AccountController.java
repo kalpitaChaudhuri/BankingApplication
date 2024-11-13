@@ -36,4 +36,10 @@ public class AccountController {
 		AccountDto accountdto=accountservice.getAccountByName(name);
 		return ResponseEntity.ok(accountdto);
 	}
+	
+	@GetMapping("/get/{age}")
+	public ResponseEntity<AccountDto> getAccountByAge(@PathVariable int age) throws Exception {
+		AccountDto accountdto=accountservice.getAccountByAge(age);
+		return ResponseEntity.ok(accountdto);
+	}
 }

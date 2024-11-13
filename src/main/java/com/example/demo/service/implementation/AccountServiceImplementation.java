@@ -1,5 +1,7 @@
 package com.example.demo.service.implementation;
 
+import java.util.List;
+
 import javax.security.auth.login.AccountNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,12 +42,11 @@ public class AccountServiceImplementation implements AccountService{
 	}
 
 	@Override
-	public AccountDto getAccountByAge(int age) throws Exception {
-		Accounts account=accountrepository.findByAge(age);
-		if(account == null) {
-			throw new AccountNotFoundException("Account with age " + age + " not found");
-		}
-		return AccountMapper.maptoaccountdto(account);
+	public List<AccountDto> getAccountByAge(int age) throws Exception {
+		List<Accounts> accounts = accountrepository.findByAge(age);
+	    if (accounts == null || accounts.isEmpty()) {
+	        throw new AccountNotFoundException("No accounts with age " + age + " found");
+	    }
+	    return AccountMapper.maptoaccountsdto(accounts);
 	}
-
 }
