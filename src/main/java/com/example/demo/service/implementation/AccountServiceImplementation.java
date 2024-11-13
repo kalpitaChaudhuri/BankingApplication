@@ -39,4 +39,13 @@ public class AccountServiceImplementation implements AccountService{
 		return AccountMapper.maptoaccountdto(account);
 	}
 
+	@Override
+	public AccountDto getAccountByAge(int age) throws Exception {
+		Accounts account=accountrepository.findByAge(age);
+		if(account == null) {
+			throw new AccountNotFoundException("Account with age " + age + " not found");
+		}
+		return AccountMapper.maptoaccountdto(account);
+	}
+
 }
