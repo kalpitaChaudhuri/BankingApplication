@@ -12,4 +12,6 @@ public interface AccountService {
 	AccountDto getAccountById(int id);
 	
 	AccountDto getAccountByName(String name) throws Exception;
+	
+	AccountDto getAccountByAge(int age);
 }
