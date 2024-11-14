@@ -49,4 +49,14 @@ public class AccountServiceImplementation implements AccountService{
 	    }
 	    return AccountMapper.maptoaccountsdto(accounts);
 	}
+
+	@Override
+	public AccountDto deposit(int id, double amount) {
+		Accounts account=accountrepository.findById(id).orElseThrow(()->new RuntimeException("id does nt exixst"));
+		double	balance=account.getBalance();
+		balance=balance+amount;
+		account.setBalance(balance);
+		Accounts savedaccount=accountrepository.save(account);
+		return AccountMapper.maptoaccountdto(savedaccount);
+	}
 }
