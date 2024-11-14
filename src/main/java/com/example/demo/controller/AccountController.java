@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -8,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -43,5 +45,12 @@ public class AccountController {
 	public ResponseEntity<List<AccountDto>> getAccountByAge(@PathVariable int age) throws Exception {
 		List<AccountDto> accountdto=accountservice.getAccountByAge(age);
 		return ResponseEntity.ok(accountdto);
+	}
+	
+	@PutMapping("/deposit/{id}")
+	public ResponseEntity<AccountDto> deposit(@PathVariable int id, @RequestBody Map<String, Double> request) {
+		Double amount = request.get("amount");
+		AccountDto accountDto = accountservice.deposit(id, amount);
+		return ResponseEntity.ok(accountDto);
 	}
 }

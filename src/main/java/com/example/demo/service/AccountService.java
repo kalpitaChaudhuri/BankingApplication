@@ -17,5 +17,5 @@ public interface AccountService {
 	
 	List<AccountDto> getAccountByAge(int age) throws Exception;
 	
-	AccountDto deposit(int id,double amount);
+	AccountDto deposit(int id, double amount);
 }
