@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.example.demo.accdto.AccountDto;
+import com.example.demo.entity.Account;
 import com.example.demo.entity.Accounts;
 import com.example.demo.mapper.AccountMapper;
 import com.example.demo.repository.AccountRepository;
@@ -58,5 +59,20 @@ public class AccountServiceImplementation implements AccountService{
 		account.setBalance(balance);
 		Accounts savedaccount=accountrepository.save(account);
 		return AccountMapper.maptoaccountdto(savedaccount);
+	}
+
+	@Override
+	public AccountDto withdraw(int id, double amount) {
+		Accounts account=accountrepository.findById(id).orElseThrow(()->new RuntimeException("id does nt exixst"));
+		if (account.getBalance()<amount) {
+			throw new RuntimeException("infsuffient balance");
+		}
+
+		double total=account.getBalance()-amount;
+
+		account.setBalance(total);
+		Accounts savedacAccount=accountrepository.save(account);
+
+		return AccountMapper.maptoaccountdto(savedacAccount);
 	}
 }
