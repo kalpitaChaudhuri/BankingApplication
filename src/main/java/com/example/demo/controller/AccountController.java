@@ -53,4 +53,12 @@ public class AccountController {
 		AccountDto accountDto = accountservice.deposit(id, amount);
 		return ResponseEntity.ok(accountDto);
 	}
+	
+	@PutMapping("/withdraw/{id}")
+	public ResponseEntity<AccountDto> withdraw(@PathVariable int id, @RequestBody Map<String, Double> request) {
+		Double amount = request.get("amount");
+		AccountDto accountDto = accountservice.withdraw(id, amount);
+		return (ResponseEntity<AccountDto>) ResponseEntity.ok(accountDto);
+
+	}
 }
