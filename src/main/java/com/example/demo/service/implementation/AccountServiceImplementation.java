@@ -1,6 +1,7 @@
 package com.example.demo.service.implementation;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.security.auth.login.AccountNotFoundException;
 
@@ -52,8 +53,8 @@ public class AccountServiceImplementation implements AccountService{
 	
 	@Override
 	public List<AccountDto> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Accounts> accounts=accountrepository.findAll();
+		return (List<AccountDto>) accounts.stream().map((account)->AccountMapper.maptoaccountdto(account)).collect(Collectors.toList());
 	}
 
 	@Override
