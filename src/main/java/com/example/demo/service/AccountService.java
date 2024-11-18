@@ -17,7 +17,10 @@ public interface AccountService {
 	
 	List<AccountDto> getAccountByAge(int age) throws Exception;
 	
+	List<AccountDto> getAll();
+	
 	AccountDto deposit(int id, double amount);
 	
 	AccountDto withdraw(int id ,double amount);
+	
 }
