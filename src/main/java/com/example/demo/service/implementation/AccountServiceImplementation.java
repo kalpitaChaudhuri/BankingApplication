@@ -49,6 +49,12 @@ public class AccountServiceImplementation implements AccountService{
 	    }
 	    return AccountMapper.maptoaccountsdto(accounts);
 	}
+	
+	@Override
+	public List<AccountDto> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	@Override
 	public AccountDto deposit(int id, double amount) {
@@ -74,4 +80,6 @@ public class AccountServiceImplementation implements AccountService{
 
 		return AccountMapper.maptoaccountdto(savedacAccount);
 	}
+
+	
 }
