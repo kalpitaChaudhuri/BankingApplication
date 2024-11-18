@@ -47,6 +47,13 @@ public class AccountController {
 		return ResponseEntity.ok(accountdto);
 	}
 	
+	@GetMapping
+	public ResponseEntity<List<AccountDto>> GetAllAccounts() {
+		List<AccountDto> acconuts = accountservice.getAll();
+
+		return ResponseEntity.ok(acconuts);
+	}
+	
 	@PutMapping("/deposit/{id}")
 	public ResponseEntity<AccountDto> deposit(@PathVariable int id, @RequestBody Map<String, Double> request) {
 		Double amount = request.get("amount");
