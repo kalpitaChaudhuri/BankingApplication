@@ -23,4 +23,5 @@ public interface AccountService {
 	
 	AccountDto withdraw(int id ,double amount);
 	
+	void deleteAccount(int id);
 }
