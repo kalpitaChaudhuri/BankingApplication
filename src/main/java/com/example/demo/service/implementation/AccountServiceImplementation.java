@@ -84,9 +84,8 @@ public class AccountServiceImplementation implements AccountService{
 
 	@Override
 	public void deleteAccount(int id) {
-		// TODO Auto-generated method stub
-		
+		accountrepository.findById(id).orElseThrow(()->new RuntimeException("id does nt exixst"));
+		accountrepository.deleteById(id);
 	}
-
 	
 }
