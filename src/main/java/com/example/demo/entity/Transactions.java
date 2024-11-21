@@ -14,27 +14,27 @@ public class Transactions {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private int id;
 	
 	@ManyToOne
 	@JoinColumn(name="account_id", nullable = false)
-	private Accounts accounts;
+	private Accounts account;
 	
 	private String transactionType;
 	private double amount;
 	private LocalDateTime transactionDate;
 	private String description;
-	public long getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
-	public Accounts getAccounts() {
-		return accounts;
+	public Accounts getAccount() {
+		return account;
 	}
-	public void setAccounts(Accounts accounts) {
-		this.accounts = accounts;
+	public void setAccount(Accounts account) {
+		this.account = account;
 	}
 	public String getTransactionType() {
 		return transactionType;
@@ -60,5 +60,5 @@ public class Transactions {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
+	
 }
