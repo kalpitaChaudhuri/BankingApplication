@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 import javax.security.auth.login.AccountNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.example.demo.accdto.AccountDto;
 import com.example.demo.entity.Accounts;
@@ -14,7 +14,7 @@ import com.example.demo.mapper.AccountMapper;
 import com.example.demo.repository.AccountRepository;
 import com.example.demo.service.AccountService;
 
-@Component
+@Service
 public class AccountServiceImplementation implements AccountService{
 
 	@Autowired
