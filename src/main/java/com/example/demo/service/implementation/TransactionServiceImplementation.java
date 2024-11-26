@@ -15,8 +15,7 @@ public class TransactionServiceImplementation implements TransactionService{
 
 	@Override
 	public Transactions saveTransaction(Transactions transaction) {
-		// TODO Auto-generated method stub
-		return null;
+		return transactionrepository.save(transaction);
 	}
 
 }
