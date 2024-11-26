@@ -15,6 +15,9 @@ public class TransactionServiceImplementation implements TransactionService{
 
 	@Override
 	public Transactions saveTransaction(Transactions transaction) {
+		 if (transaction.getAccount() == null) {
+		        throw new IllegalArgumentException("Account must not be null");
+		 }
 		return transactionrepository.save(transaction);
 	}
 

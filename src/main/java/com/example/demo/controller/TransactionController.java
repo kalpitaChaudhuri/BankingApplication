@@ -17,7 +17,7 @@ public class TransactionController {
 	@Autowired
 	private TransactionService transactionService;
 
-	 @PostMapping
+	 @PostMapping("/save")
 	    public ResponseEntity<Transactions> saveTransaction(@RequestBody Transactions transaction) {
 		 Transactions savedTransaction = transactionService.saveTransaction(transaction);
 	        return ResponseEntity.ok(savedTransaction);

@@ -10,5 +10,5 @@ import com.example.demo.entity.Transactions;
 @Repository
 public interface TransactionRepository extends JpaRepository<Transactions, Integer>{
 
-	List<Transactions> findByAccountId(int id);
+	//List<Transactions> findByAccountId(int id);
 }
