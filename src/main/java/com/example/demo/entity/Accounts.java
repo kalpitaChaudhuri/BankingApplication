@@ -28,7 +28,12 @@ public class Accounts {
 		// TODO Auto-generated constructor stub
 	}
 
-	
+	public Accounts(int id, String name, int age, double balance) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.balance = balance;
+    }
 	
 	public Accounts(int id, String name, int age, double balance, List<Transactions> transactions) {
 		super();
